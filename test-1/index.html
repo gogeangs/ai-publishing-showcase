@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>갈매기대도 - 돼지 갈매기살의 새로운 기준</title>
+  <meta name="description" content="갈매기대도 - 한 부위에 담은 정직한 장사, 바른 고깃집의 기준입니다. 가맹 문의 및 창업 상담">
+
+  <!-- Pretendard 웹폰트 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+
+  <!-- TODO: 실제 에셋으로 교체 → favicon.png -->
+  <!-- <link rel="icon" type="image/png" href="assets/svg/favicon.png"> -->
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 쇼케이스 내비게이션 배너 -->
+  <div style="position:fixed;top:0;left:0;right:0;z-index:9999;background:#0f172a;color:#94a3b8;font-family:'Pretendard Variable',sans-serif;font-size:13px;display:flex;align-items:center;justify-content:space-between;padding:8px 20px;border-bottom:1px solid rgba(255,255,255,0.1)">
+    <a href="../" style="color:#fff;text-decoration:none;font-weight:600">← 쇼케이스로 돌아가기</a>
+    <span>Test 1: 상세 업무요청서 방식 &nbsp;|&nbsp; 유사도 ~35% &nbsp;|&nbsp; 품질 91점</span>
+  </div>
+  <div style="height:36px"></div>
+
+<!-- ============================================================
+     GNB (Global Navigation Bar)
+     ============================================================ -->
+<header class="gnb" id="gnb">
+  <div class="gnb__inner">
+    <div class="gnb__container">
+
+      <!-- 로고 -->
+      <a href="#" class="gnb__logo">
+        <!-- TODO: 실제 에셋으로 교체 → logo-horizontal-white.svg -->
+        <span class="gnb__logo-text">갈매기대도</span>
+      </a>
+
+      <!-- PC 메뉴 -->
+      <nav class="gnb__menu">
+        <a href="#brand" class="gnb__menu-item">브랜드</a>
+        <a href="#diff" class="gnb__menu-item">차별점</a>
+        <a href="#menu" class="gnb__menu-item">메뉴</a>
+        <a href="#review" class="gnb__menu-item">후기</a>
+        <a href="#process" class="gnb__menu-item">창업절차</a>
+        <a href="#contact" class="gnb__menu-item">문의하기</a>
+      </nav>
+
+      <!-- 모바일 햄버거 -->
+      <button class="gnb__hamburger" id="hamburger-btn" aria-label="메뉴 열기">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+  </div>
+</header>
+
+<!-- 모바일 풀스크린 메뉴 -->
+<div class="mobile-nav" id="mobile-nav">
+  <div class="mobile-nav__header">
+    <span class="mobile-nav__logo">갈매기대도</span>
+    <button class="mobile-nav__close" id="mobile-nav-close" aria-label="메뉴 닫기">&times;</button>
+  </div>
+  <nav class="mobile-nav__list">
+    <a href="#brand" class="mobile-nav__item">브랜드</a>
+    <a href="#diff" class="mobile-nav__item">차별점</a>
+    <a href="#menu" class="mobile-nav__item">메뉴</a>
+    <a href="#review" class="mobile-nav__item">후기</a>
+    <a href="#process" class="mobile-nav__item">창업절차</a>
+    <a href="#contact" class="mobile-nav__item">문의하기</a>
+  </nav>
+  <div class="mobile-nav__phone">📞 0000-0000</div>
+</div>
+
+
+<!-- ============================================================
+     메인 비주얼 (Hero)
+     ============================================================ -->
+<section class="hero" id="hero">
+  <!-- TODO: 실제 에셋으로 교체 → hero-bg.jpg -->
+  <div class="hero__bg"></div>
+  <div class="hero__overlay"></div>
+
+  <!-- 우측 장식 세로 로고 (워터마크) -->
+  <!-- TODO: 실제 에셋으로 교체 → logo-vertical.svg -->
+  <div class="hero__watermark">갈매기대도</div>
+
+  <div class="hero__content">
+    <h1 class="hero__title">돼지 갈매기살의 새로운 기준</h1>
+
+    <div class="hero__logo-wrap">
+      <!-- TODO: 실제 에셋으로 교체 → logo-horizontal-white.svg -->
+      <div class="hero__logo">갈매기대도</div>
+      <!-- TODO: 실제 에셋으로 교체 → favicon-80.svg -->
+      <div class="hero__favicon">로고</div>
+    </div>
+
+    <p class="hero__sub">한 부위에 담은 정직한 장사, 바른 고깃집의 기준입니다.</p>
+  </div>
+
+  <!-- 하단 패턴 라인 -->
+  <div class="hero__pattern">
+    <div class="pattern-line"></div>
+  </div>
+
+  <!-- 하단 문의 바 (PC에서만 표시) -->
+  <div class="inquiry-bar" style="position: relative; z-index: 2; margin-top: -65px;">
+    <span class="inquiry-bar__badge">전화창업문의</span>
+    <div class="inquiry-bar__phone-wrap">
+      <span class="inquiry-bar__phone-icon">📞</span>
+      <span class="inquiry-bar__phone">0000-0000</span>
+    </div>
+    <div class="inquiry-bar__inputs">
+      <input type="text" class="inquiry-bar__input" placeholder="성함">
+      <input type="tel" class="inquiry-bar__input" placeholder="휴대폰번호">
+      <input type="email" class="inquiry-bar__input" placeholder="이메일주소">
+    </div>
+    <div class="inquiry-bar__agree">
+      <div class="inquiry-bar__checkbox">
+        <!-- TODO: 실제 에셋으로 교체 → icon-check-sm.svg -->
+        <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 7.5L6 11.5L13 3.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <span class="inquiry-bar__agree-text"><strong>개인정보처리방침</strong>에 동의</span>
+    </div>
+    <button class="inquiry-bar__submit">문의하기</button>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     브랜드 소개
+     ============================================================ -->
+<section class="brand" id="brand">
+  <!-- 우측 장식 벡터 -->
+  <!-- TODO: 실제 에셋으로 교체 → decoration-vector.svg -->
+  <div class="brand__decoration"></div>
+
+  <div class="brand__inner">
+    <div class="brand__container">
+
+      <!-- 좌측: 소개글 -->
+      <div class="brand__left">
+        <!-- 아치형 텍스트 — TODO: 실제 에셋으로 교체 → arch-text.svg -->
+        <p class="brand__arch-text">~ 갈매기살의 새로운 기준 ~</p>
+
+        <div class="brand__logo-wrap">
+          <!-- TODO: 실제 에셋으로 교체 → logo-horizontal-color.svg -->
+          <div class="brand__logo">갈매기대도</div>
+          <!-- TODO: 실제 에셋으로 교체 → favicon-64.svg -->
+          <div class="brand__favicon">로고</div>
+        </div>
+
+        <div class="brand__story">
+          <p>갈매기대도는 사람이 마땅히 지켜야 할 도리를 품고, 그 도리를 따라 큰길로 나아가고자 하는 고깃집입니다.</p>
+          <p>그 시작은 <span class="text-orange">언양숯불구이</span>였습니다. 1990년, 김해의 작은 골목에서 (故)조명주님은 삶을 잇기 위해 불 앞에 섰습니다. 세월과 사람을 만나며 우리는 알게 되었습니다. 장사는 돈보다 태도에서 시작되고, 음식은 기술보다 마음에서 완성된다는 것을.</p>
+          <p>그 마음은 쌓여 <span class="text-orange">김해 백년가게</span>로 남았고, 이제 그 뜻과 대를 이어, 대대손손 같은 불을 지킵니다.</p>
+          <p>갈매기대도는 처음의 마음을 지키며 묵묵히 큰길로 나아가겠습니다.</p>
+        </div>
+      </div>
+
+      <!-- 우측: 매장 사진 + 인증 + 말풍선 -->
+      <div class="brand__right">
+        <!-- TODO: 실제 에셋으로 교체 → store-brand.jpg -->
+        <div class="brand__store-img">매장 사진 (store-brand.jpg)</div>
+
+        <!-- 원형 인증 사진 -->
+        <!-- TODO: 실제 에셋으로 교체 → cert-circle.jpg -->
+        <div class="brand__cert">인증</div>
+
+        <!-- 말풍선 -->
+        <div class="brand__speech">
+          <div class="brand__speech-box">
+            <!-- TODO: 실제 에셋으로 교체 → baeknyeon-logo.jpg -->
+            <div class="brand__speech-logo">백년가게 로고</div>
+            <p class="brand__speech-text"><span class="text-orange">30년</span> 이상 명맥을 유지하면서도 오래도록 고객의 꾸준한 사랑을 받아온, 중소벤처기업부에서 우수성과 성장가능성을 높게 평가받은 점포입니다.</p>
+          </div>
+          <!-- 말풍선 꼬리 -->
+          <!-- TODO: 실제 에셋으로 교체 → speech-bubble-tail.svg -->
+          <div class="brand__speech-tail">
+            <svg viewBox="0 0 45 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 0L22.5 33L45 0H0Z" fill="white"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     배경 이미지 섹션 ("왜 갈매기살인가?")
+     ============================================================ -->
+<section class="why-section" id="why">
+  <!-- TODO: 실제 에셋으로 교체 → bg-food.jpg -->
+  <div class="why-section__bg"></div>
+  <div class="why-section__blur"></div>
+
+  <div class="why-section__inner">
+    <!-- 좌측: 갈매기살 누끼 -->
+    <!-- TODO: 실제 에셋으로 교체 → galmaegi-nukki.png -->
+    <div class="why-section__img">갈매기살 누끼 (galmaegi-nukki.png)</div>
+
+    <!-- 우측: 텍스트 -->
+    <div class="why-section__text">
+      <div class="why-section__keycopy">
+        <h2 class="why-section__title">왜 갈매기살인가?</h2>
+        <p class="why-section__subtitle">돼지 한 마리에서 단 200~300g, 그 귀한 부위의 가치</p>
+      </div>
+
+      <div class="why-section__body">
+        <!-- "단 0.3%의 희소성" 포인트 -->
+        <div class="why-section__rarity">
+          <!-- TODO: 실제 에셋으로 교체 → rarity-border.svg -->
+          <div class="why-section__rarity-border"></div>
+          단 0.3%의 희소성
+        </div>
+
+        <div>
+          <p class="why-section__desc">갈매기살은 돼지 한 마리에서 200~300g만 나오는 귀한 부위입니다.</p>
+          <p class="why-section__desc" style="margin-top: 8px;">부드러운 식감과 깊은 풍미에 화덕 참숯 불맛을 더해 소고기 못지않은 감칠맛을 완성했습니다.</p>
+          <br>
+          <p class="why-section__desc">귀한 부위이기에 더 정직하게, 본질에 집중해 제대로 된 맛을 전하고자 갈매기대도는 갈매기살을 선택했습니다.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     차별점
+     ============================================================ -->
+<section class="diff" id="diff">
+  <div class="diff__inner">
+    <div class="diff__container">
+
+      <!-- 좌측: 키카피 + 매장 외관 -->
+      <div class="diff__left">
+        <h2 class="diff__title">갈매기대도 만의<br>차별점</h2>
+      </div>
+
+      <!-- 매장 외관 사진 (하단 고정) -->
+      <!-- TODO: 실제 에셋으로 교체 → store-exterior.jpg -->
+      <div class="diff__store-img">매장 외관 사진 (store-exterior.jpg)</div>
+
+      <!-- 글래스모피즘 카드 -->
+      <div class="diff__card">
+        <div class="diff__list">
+          <div class="diff__item">
+            <div class="diff__badge">01</div>
+            <div class="diff__item-content">
+              <h3 class="diff__item-title">휘황찬란함보다 본질을 선택합니다</h3>
+              <p class="diff__item-desc">보여주기 위한 화려함 대신, 오래 남는 가치에 집중합니다.</p>
+            </div>
+          </div>
+
+          <div class="diff__item">
+            <div class="diff__badge">02</div>
+            <div class="diff__item-content">
+              <h3 class="diff__item-title">고깃집의 본질은 고기입니다</h3>
+              <p class="diff__item-desc">갈매기살 한 부위에 집중해 불필요한 것은 덜어내고 고기 본연의 맛을 지킵니다.</p>
+            </div>
+          </div>
+
+          <div class="diff__item">
+            <div class="diff__badge">03</div>
+            <div class="diff__item-content">
+              <h3 class="diff__item-title">공간은 편안해야 합니다</h3>
+              <p class="diff__item-desc">과하지 않지만 부족하지 않은, 누구에게나 부담 없는 공간을 만듭니다</p>
+            </div>
+          </div>
+
+          <div class="diff__item">
+            <div class="diff__badge">04</div>
+            <div class="diff__item-content">
+              <h3 class="diff__item-title">태도 또한 본질입니다</h3>
+              <p class="diff__item-desc">요령이나 편법이 아닌, 정직한 응대와 기본을 지킵니다.</p>
+            </div>
+          </div>
+
+          <div class="diff__item">
+            <div class="diff__badge">05</div>
+            <div class="diff__item-content">
+              <h3 class="diff__item-title">우리는 오래 가는 길을 택합니다</h3>
+              <p class="diff__item-desc">빠른 확장보다 신뢰가 쌓이는 브랜드를 지향합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- 하단 여백 (매장 사진 공간 확보) -->
+  <div class="diff__bottom-space"></div>
+</section>
+
+
+<!-- ============================================================
+     상차림 (메뉴)
+     ============================================================ -->
+<section class="menu-section" id="menu">
+  <div class="menu-section__keycopy">
+    <div class="key-copy">
+      <h2 class="key-copy__title">갈매기대도의 상차림</h2>
+      <p class="key-copy__sub">한 끼 이상의 편안함을 담았습니다.</p>
+    </div>
+  </div>
+
+  <div class="menu-section__content">
+    <!-- 탭 바 -->
+    <div class="menu-tabs">
+      <button class="menu-tab menu-tab--active" data-tab="grill">구이류</button>
+      <button class="menu-tab menu-tab--inactive" data-tab="side">곁들임</button>
+    </div>
+
+    <!-- 메뉴 카드 슬라이드 — 구이류 -->
+    <div class="menu-slide" id="menu-slide-grill">
+      <div class="menu-card">
+        <img src="https://placehold.co/290x218/ECE5D8/505050?text=대도카세" alt="대도카세" class="menu-card__img"
+             onerror="this.style.background='#ECE5D8'; this.style.display='flex'; this.style.alignItems='center'; this.style.justifyContent='center';">
+        <div class="menu-card__name">대도카세</div>
+      </div>
+      <div class="menu-card">
+        <img src="https://placehold.co/290x218/ECE5D8/505050?text=통+대파+갈매기살" alt="통 대파 갈매기살" class="menu-card__img"
+             onerror="this.style.background='#ECE5D8';">
+        <div class="menu-card__name">통 대파 갈매기살</div>
+      </div>
+      <div class="menu-card">
+        <img src="https://placehold.co/290x218/ECE5D8/505050?text=생+갈매기살" alt="생 갈매기살" class="menu-card__img"
+             onerror="this.style.background='#ECE5D8';">
+        <div class="menu-card__name">생 갈매기살</div>
+      </div>
+      <div class="menu-card menu-card--active">
+        <img src="https://placehold.co/290x217/006343/ffffff?text=주물럭+갈매기살" alt="주물럭 갈매기살" class="menu-card__img"
+             onerror="this.style.background='#006343';">
+        <div class="menu-card__name">주물럭 갈매기살</div>
+      </div>
+    </div>
+
+    <!-- 메뉴 카드 슬라이드 — 곁들임 (기본 숨김) -->
+    <div class="menu-slide" id="menu-slide-side" style="display: none;">
+      <div class="menu-card">
+        <img src="https://placehold.co/290x218/ECE5D8/505050?text=곁들임+메뉴+1" alt="곁들임 메뉴 1" class="menu-card__img">
+        <div class="menu-card__name">곁들임 메뉴 1</div>
+      </div>
+      <div class="menu-card">
+        <img src="https://placehold.co/290x218/ECE5D8/505050?text=곁들임+메뉴+2" alt="곁들임 메뉴 2" class="menu-card__img">
+        <div class="menu-card__name">곁들임 메뉴 2</div>
+      </div>
+      <div class="menu-card">
+        <img src="https://placehold.co/290x218/ECE5D8/505050?text=곁들임+메뉴+3" alt="곁들임 메뉴 3" class="menu-card__img">
+        <div class="menu-card__name">곁들임 메뉴 3</div>
+      </div>
+      <div class="menu-card menu-card--active">
+        <img src="https://placehold.co/290x217/006343/ffffff?text=곁들임+메뉴+4" alt="곁들임 메뉴 4" class="menu-card__img">
+        <div class="menu-card__name">곁들임 메뉴 4</div>
+      </div>
+    </div>
+
+    <!-- 화살표 -->
+    <div class="menu-arrows">
+      <button class="menu-arrow menu-arrow--prev" aria-label="이전 메뉴">
+        <svg viewBox="0 0 20 20" fill="none"><path d="M13 4L7 10L13 16" stroke="#111" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </button>
+      <button class="menu-arrow menu-arrow--next" aria-label="다음 메뉴">
+        <svg viewBox="0 0 20 20" fill="none"><path d="M7 4L13 10L7 16" stroke="#111" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     고객 후기
+     ============================================================ -->
+<section class="review" id="review">
+  <!-- 상단 구분 바 -->
+  <div class="review__topbar"></div>
+
+  <div class="review__content">
+    <div class="review__keycopy">
+      <div class="key-copy">
+        <h2 class="key-copy__title">100% 고객 만족 후기</h2>
+        <p class="key-copy__sub">꾸밈없는 정성과 태도가 손님들의 경험으로 남았습니다.</p>
+      </div>
+    </div>
+
+    <!-- 리뷰 슬라이드 + 폰 목업 -->
+    <div class="review__slide-wrapper">
+      <div class="review__slide">
+        <!-- 리뷰 카드 1 -->
+        <div class="review__card">
+          <div class="review__card-inner">
+            <!-- TODO: 실제 에셋으로 교체 → review-1.jpg -->
+            <img src="https://placehold.co/380x200/ECE5D8/505050?text=고객+후기+1" alt="고객 후기 1" class="review__img"
+                 onerror="this.style.background='#ECE5D8';">
+            <p class="review__text">갈매기살 전문점이라 기대하고 갔는데 기대 이상이었어요. 고기 질이 정말 좋고 직원분들도 친절하셨습니다. 또 방문하고 싶어요!</p>
+          </div>
+        </div>
+
+        <!-- 리뷰 카드 2 -->
+        <div class="review__card">
+          <div class="review__card-inner">
+            <!-- TODO: 실제 에셋으로 교체 → review-2.jpg -->
+            <img src="https://placehold.co/380x200/ECE5D8/505050?text=고객+후기+2" alt="고객 후기 2" class="review__img"
+                 onerror="this.style.background='#ECE5D8';">
+            <p class="review__text">분위기도 좋고 고기도 맛있고! 가족 모임으로 방문했는데 모두가 만족했어요. 가격 대비 퀄리티가 정말 좋습니다.</p>
+          </div>
+        </div>
+
+        <!-- 리뷰 카드 3 -->
+        <div class="review__card">
+          <div class="review__card-inner">
+            <!-- TODO: 실제 에셋으로 교체 → review-3.jpg -->
+            <img src="https://placehold.co/380x200/ECE5D8/505050?text=고객+후기+3" alt="고객 후기 3" class="review__img"
+                 onerror="this.style.background='#ECE5D8';">
+            <p class="review__text">30년 전통이라더니 역시 맛이 남다릅니다. 숯불 향이 고기에 배어서 정말 맛있어요. 김해 오면 꼭 다시 올게요!</p>
+          </div>
+        </div>
+
+        <!-- 리뷰 카드 4 -->
+        <div class="review__card">
+          <div class="review__card-inner">
+            <!-- TODO: 실제 에셋으로 교체 → review-4.jpg -->
+            <img src="https://placehold.co/380x200/ECE5D8/505050?text=고객+후기+4" alt="고객 후기 4" class="review__img"
+                 onerror="this.style.background='#ECE5D8';">
+            <p class="review__text">직원분들 응대가 너무 좋았어요. 고기도 신선하고 반찬도 깔끔합니다. 회식 장소로 강력 추천드립니다!</p>
+          </div>
+        </div>
+
+        <!-- 리뷰 카드 5 -->
+        <div class="review__card">
+          <div class="review__card-inner">
+            <!-- TODO: 실제 에셋으로 교체 → review-5.jpg -->
+            <img src="https://placehold.co/380x200/ECE5D8/505050?text=고객+후기+5" alt="고객 후기 5" class="review__img"
+                 onerror="this.style.background='#ECE5D8';">
+            <p class="review__text">갈매기살이 이렇게 부드러울 수 있다니! 참숯으로 구워주시니까 풍미가 완전 달라요. 최고의 고깃집입니다!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 폰 목업 -->
+      <!-- TODO: 실제 에셋으로 교체 → phone-mockup.svg -->
+      <div class="review__phone">
+        <div class="review__phone-notch"></div>
+        <div class="review__phone-screen">리뷰 화면</div>
+        <div class="review__phone-bar"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     중간 배너
+     ============================================================ -->
+<section class="mid-banner">
+  <div class="mid-banner__images">
+    <!-- TODO: 실제 에셋으로 교체 → banner-left.jpg -->
+    <div class="mid-banner__img mid-banner__img--left"></div>
+    <!-- TODO: 실제 에셋으로 교체 → banner-right.jpg -->
+    <div class="mid-banner__img mid-banner__img--right"></div>
+  </div>
+  <div class="mid-banner__overlay"></div>
+  <div class="mid-banner__dots"></div>
+
+  <div class="mid-banner__content">
+    <!-- TODO: 실제 에셋으로 교체 → brush-stroke.svg -->
+    <div class="mid-banner__brush">
+      <div class="mid-banner__brush-bg"></div>
+      <span class="mid-banner__brush-text">줄서는 맛집</span>
+    </div>
+    <!-- TODO: 실제 에셋으로 교체 → logo-horizontal-white.svg -->
+    <div class="mid-banner__logo">갈매기대도</div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     창업절차
+     ============================================================ -->
+<section class="process" id="process">
+  <div class="process__keycopy">
+    <div class="key-copy">
+      <h2 class="key-copy__title">창업절차</h2>
+      <p class="key-copy__sub">가맹문의부터 오픈 이후 운영까지 본사가 전 과정을 책임지고 지원합니다.</p>
+    </div>
+  </div>
+
+  <div class="process__grid">
+    <!-- STEP 01 -->
+    <div class="process__step">
+      <span class="process__badge">STEP 01</span>
+      <!-- TODO: 실제 에셋으로 교체 → step-01-inquiry.svg -->
+      <div class="process__icon">
+        <img src="assets/icons/step-01-inquiry.svg" alt="가맹 문의 접수" onerror="this.style.display='none'; this.parentElement.textContent='📋';">
+      </div>
+      <span class="process__name">가맹 문의 접수</span>
+    </div>
+
+    <!-- STEP 02 -->
+    <div class="process__step">
+      <span class="process__badge">STEP 02</span>
+      <div class="process__icon">
+        <img src="assets/icons/step-02-consult.svg" alt="1차 상담 진행" onerror="this.style.display='none'; this.parentElement.textContent='🎧';">
+      </div>
+      <span class="process__name">1차 상담 진행</span>
+    </div>
+
+    <!-- STEP 03 -->
+    <div class="process__step">
+      <span class="process__badge">STEP 03</span>
+      <div class="process__icon">
+        <img src="assets/icons/step-03-document.svg" alt="정보공개서 제공" onerror="this.style.display='none'; this.parentElement.textContent='📁';">
+      </div>
+      <span class="process__name">정보공개서 제공</span>
+    </div>
+
+    <!-- STEP 04 -->
+    <div class="process__step">
+      <span class="process__badge">STEP 04</span>
+      <div class="process__icon">
+        <img src="assets/icons/step-04-location.svg" alt="상권·입지 분석" onerror="this.style.display='none'; this.parentElement.textContent='📍';">
+      </div>
+      <span class="process__name">상권·입지 분석</span>
+    </div>
+
+    <!-- STEP 05 -->
+    <div class="process__step">
+      <span class="process__badge">STEP 05</span>
+      <div class="process__icon">
+        <img src="assets/icons/step-05-contract.svg" alt="가맹 계약 체결" onerror="this.style.display='none'; this.parentElement.textContent='📝';">
+      </div>
+      <span class="process__name">가맹 계약 체결</span>
+    </div>
+
+    <!-- STEP 06 -->
+    <div class="process__step">
+      <span class="process__badge">STEP 06</span>
+      <div class="process__icon">
+        <img src="assets/icons/step-06-interior.svg" alt="인테리어 시공" onerror="this.style.display='none'; this.parentElement.textContent='🏗️';">
+      </div>
+      <span class="process__name">인테리어 시공</span>
+    </div>
+
+    <!-- STEP 07 -->
+    <div class="process__step">
+      <span class="process__badge">STEP 07</span>
+      <div class="process__icon">
+        <img src="assets/icons/step-07-education.svg" alt="운용·조리 교육" onerror="this.style.display='none'; this.parentElement.textContent='🎓';">
+      </div>
+      <span class="process__name">운용·조리 교육</span>
+    </div>
+
+    <!-- STEP 08 -->
+    <div class="process__step">
+      <span class="process__badge">STEP 08</span>
+      <div class="process__icon">
+        <img src="assets/icons/step-08-preview.svg" alt="가오픈 점검" onerror="this.style.display='none'; this.parentElement.textContent='👥';">
+      </div>
+      <span class="process__name">가오픈 점검</span>
+    </div>
+
+    <!-- STEP 09 -->
+    <div class="process__step">
+      <span class="process__badge">STEP 09</span>
+      <div class="process__icon">
+        <img src="assets/icons/step-09-open.svg" alt="정식 오픈 지원" onerror="this.style.display='none'; this.parentElement.textContent='🎉';">
+      </div>
+      <span class="process__name">정식 오픈 지원</span>
+    </div>
+
+    <!-- STEP 10 -->
+    <div class="process__step">
+      <span class="process__badge">STEP 10</span>
+      <div class="process__icon">
+        <img src="assets/icons/step-10-manage.svg" alt="지속 운영 관리" onerror="this.style.display='none'; this.parentElement.textContent='⚙️';">
+      </div>
+      <span class="process__name">지속 운영 관리</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     창업비용
+     ============================================================ -->
+<section class="cost" id="cost">
+  <div class="cost__keycopy">
+    <div class="key-copy">
+      <h2 class="key-copy__title">창업비용</h2>
+      <p class="key-copy__sub">숨김없이, 과장 없이 실제 필요한 항목만 명확하게 안내드립니다.</p>
+    </div>
+  </div>
+
+  <div class="cost__table-wrap">
+    <table class="cost__table">
+      <thead>
+        <tr>
+          <th>구분</th>
+          <td>30평 기준 예상비용 <span>(단위:만원)</span></td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>가맹비</th>
+          <td>1,000</td>
+        </tr>
+        <tr>
+          <th>교육비</th>
+          <td>500</td>
+        </tr>
+        <tr>
+          <th>계약이행<br>보증금</th>
+          <td>200</td>
+        </tr>
+        <tr>
+          <th>의탁자</th>
+          <td>600 <small>테이블 13개 기준</small></td>
+        </tr>
+        <tr>
+          <th>내부<br>인테리어</th>
+          <td>5,400 <small>평당 180만원</small></td>
+        </tr>
+        <tr>
+          <th>외부<br>인테리어</th>
+          <td>1,000</td>
+        </tr>
+        <tr>
+          <th>간판·<br>사인물</th>
+          <td>500</td>
+        </tr>
+        <tr>
+          <th>주방<br>집기·기물</th>
+          <td>2,400</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr class="cost__total">
+          <th>총 합계</th>
+          <td>1억 1,150만원</td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+  <p class="cost__note">별도: 냉난방 / 전기증설 / 닥트 / 가스 / 소방 / 철거 / 화장실 등</p>
+</section>
+
+
+<!-- ============================================================
+     문의하기
+     ============================================================ -->
+<section class="contact" id="contact">
+  <div class="contact__keycopy">
+    <div class="key-copy">
+      <h2 class="key-copy__title">문의하기</h2>
+      <p class="key-copy__sub">30년 전통의 갈매기대도와 함께하실 점주님들을 기다립니다.</p>
+    </div>
+  </div>
+
+  <div class="contact__box-outer">
+    <div class="contact__box-inner">
+      <form id="contact-form">
+        <div class="contact__form-grid">
+          <!-- 성함 -->
+          <div class="contact__field">
+            <label class="contact__label" for="contact-name">성함</label>
+            <input type="text" id="contact-name" class="input-field" placeholder="ex)홍길동">
+          </div>
+
+          <!-- 이메일 -->
+          <div class="contact__field">
+            <label class="contact__label" for="contact-email">이메일</label>
+            <input type="email" id="contact-email" class="input-field" placeholder="ex) sample@gmail.com">
+          </div>
+
+          <!-- 휴대폰번호 -->
+          <div class="contact__field">
+            <label class="contact__label" for="contact-phone">휴대폰번호</label>
+            <input type="tel" id="contact-phone" class="input-field" placeholder="ex) 01012345678">
+          </div>
+
+          <!-- 창업희망지역 -->
+          <div class="contact__field">
+            <label class="contact__label" for="contact-region">창업희망지역</label>
+            <select id="contact-region" class="contact__select">
+              <option value="" disabled selected>ex)서울시 성동구</option>
+              <option value="서울">서울</option>
+              <option value="경기">경기</option>
+              <option value="인천">인천</option>
+              <option value="부산">부산</option>
+              <option value="대구">대구</option>
+              <option value="광주">광주</option>
+              <option value="대전">대전</option>
+              <option value="울산">울산</option>
+              <option value="세종">세종</option>
+              <option value="강원">강원</option>
+              <option value="충북">충북</option>
+              <option value="충남">충남</option>
+              <option value="전북">전북</option>
+              <option value="전남">전남</option>
+              <option value="경북">경북</option>
+              <option value="경남">경남</option>
+              <option value="제주">제주</option>
+            </select>
+          </div>
+
+          <!-- 문의내용 (선택) -->
+          <div class="contact__field contact__textarea-wrap">
+            <label class="contact__label" for="contact-message">문의내용 <span>(선택)</span></label>
+            <textarea id="contact-message" class="contact__textarea" placeholder="문의 내용"></textarea>
+          </div>
+        </div>
+
+        <!-- 동의 + 제출 -->
+        <div class="contact__bottom">
+          <label class="contact__agree">
+            <div class="contact__checkbox">
+              <!-- TODO: 실제 에셋으로 교체 → icon-check-lg.svg -->
+              <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 10L8 15L17 5" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span class="contact__agree-text"><a href="#">개인정보처리방침(전문보기)</a>에 동의</span>
+          </label>
+          <button type="submit" class="contact__submit">문의하기</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 하단 패턴 라인 -->
+  <div class="contact__pattern">
+    <div class="pattern-line"></div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     푸터
+     ============================================================ -->
+<footer class="footer" id="footer">
+  <div class="footer__container">
+    <div class="footer__row">
+
+      <!-- 좌측: 세로 로고 + 회사정보 -->
+      <div class="footer__left">
+        <!-- TODO: 실제 에셋으로 교체 → logo-vertical.svg -->
+        <div class="footer__logo">
+          <img src="assets/svg/logo-vertical.svg" alt="갈매기대도 로고" onerror="this.style.display='none'; this.parentElement.textContent='로고';">
+        </div>
+        <div class="footer__company">
+          <h3 class="footer__section-title">회사정보</h3>
+          <div class="footer__info">
+            갈매기대도<br>
+            대표 : 조민우<br>
+            사업자등록번호 : 000-00-00000<br>
+            주소 : 경남 김해시 김해대로2371번길 12-12(부원동)
+          </div>
+        </div>
+      </div>
+
+      <!-- 중앙: 소셜미디어 -->
+      <div class="footer__social">
+        <h3 class="footer__section-title">소셜미디어</h3>
+        <div class="footer__social-item">
+          <!-- TODO: 실제 에셋으로 교체 → icon-instagram.svg -->
+          <div class="footer__social-icon">
+            <img src="assets/icons/icon-instagram.svg" alt="" onerror="this.style.display='none'; this.parentElement.textContent='IG';">
+          </div>
+          <span class="footer__social-name">인스타그램</span>
+        </div>
+      </div>
+
+      <!-- 우측: 고객센터 -->
+      <div class="footer__cs">
+        <h3 class="footer__section-title">고객센터</h3>
+        <span class="footer__phone">대표번호 : 0000-0000</span>
+      </div>
+
+    </div>
+
+    <!-- Copyright -->
+    <p class="footer__copyright">Copyright ⓒ갈매기대도. ALL RIGHTS RESERVED.</p>
+  </div>
+
+  <!-- 하단 문의 바 (푸터) -->
+  <div class="inquiry-bar inquiry-bar--footer">
+    <span class="inquiry-bar__badge">전화창업문의</span>
+    <div class="inquiry-bar__phone-wrap">
+      <span class="inquiry-bar__phone-icon">📞</span>
+      <span class="inquiry-bar__phone">0000-0000</span>
+    </div>
+    <div class="inquiry-bar__inputs">
+      <input type="text" class="inquiry-bar__input" placeholder="성함">
+      <input type="tel" class="inquiry-bar__input" placeholder="휴대폰번호">
+      <input type="email" class="inquiry-bar__input" placeholder="이메일주소">
+    </div>
+    <div class="inquiry-bar__agree">
+      <div class="inquiry-bar__checkbox">
+        <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 7.5L6 11.5L13 3.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <span class="inquiry-bar__agree-text"><strong>개인정보처리방침</strong>에 동의</span>
+    </div>
+    <button class="inquiry-bar__submit">문의하기</button>
+  </div>
+</footer>
+
+
+<script src="script.js"></script>
+</body>
+</html>

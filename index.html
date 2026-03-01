@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI 퍼블리싱 쇼케이스 - ITSO</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="style-showcase.css">
+</head>
+<body>
+
+  <!-- ========== GNB ========== -->
+  <nav class="sc-gnb">
+    <div class="sc-inner">
+      <a href="#" class="sc-logo">ITSO <span>AI Publishing</span></a>
+      <ul class="sc-nav">
+        <li><a href="#intro">테스트 소개</a></li>
+        <li><a href="#compare">결과 비교</a></li>
+        <li><a href="#numbers">핵심 숫자</a></li>
+        <li><a href="#detail">상세 비교</a></li>
+        <li><a href="#workflow">워크플로우</a></li>
+        <li><a href="#next">다음 단계</a></li>
+      </ul>
+      <button class="sc-hamburger" id="scHamburger" aria-label="메뉴 열기">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- 모바일 메뉴 -->
+  <div class="sc-mobile-menu" id="scMobileMenu">
+    <a href="#intro">테스트 소개</a>
+    <a href="#compare">결과 비교</a>
+    <a href="#numbers">핵심 숫자</a>
+    <a href="#detail">상세 비교</a>
+    <a href="#workflow">워크플로우</a>
+    <a href="#next">다음 단계</a>
+  </div>
+
+  <!-- ========== 섹션 1: 히어로 ========== -->
+  <section class="sc-hero">
+    <div class="sc-hero-bg"></div>
+    <div class="sc-inner">
+      <p class="sc-hero-label">AI Publishing Test Report</p>
+      <h1 class="sc-hero-title">
+        랜딩페이지 1개,<br>
+        퍼블리싱에 <em>며칠</em> 걸리시죠?
+      </h1>
+      <p class="sc-hero-sub">
+        3~5일 걸리던 퍼블리싱을<br class="mobile-only">
+        AI로 <strong>1일 만에</strong> 완성합니다.
+      </p>
+      <p class="sc-hero-desc">
+        같은 Figma 시안으로 4가지 방법을 테스트하고,<br class="mobile-only">
+        실제 결과물을 직접 비교해보세요.
+      </p>
+      <a href="#intro" class="sc-hero-cta">테스트 결과 보기 ↓</a>
+    </div>
+  </section>
+
+  <!-- ========== 섹션 2: 테스트 소개 ========== -->
+  <section class="sc-section" id="intro">
+    <div class="sc-inner">
+      <div class="sc-section-header fade-up">
+        <p class="sc-label">Test Overview</p>
+        <h2>같은 디자인 시안으로<br>4가지 방법을 테스트했습니다</h2>
+        <p class="sc-section-desc">
+          갈매기대도 프랜차이즈 창업문의 랜딩페이지를<br>
+          Claude Code (Opus 4.6) + Figma MCP로 AI 퍼블리싱한 결과입니다.
+        </p>
+      </div>
+
+      <div class="sc-test-cards fade-up">
+        <div class="sc-test-card" data-test="1">
+          <div class="sc-test-num">01</div>
+          <h3>상세 업무요청서</h3>
+          <p class="sc-test-method">893줄 .md 문서로<br>모든 섹션을 상세 기술</p>
+          <div class="sc-test-result">
+            <span class="sc-badge gray">유사도 ~35%</span>
+            <span class="sc-badge">품질 91점</span>
+          </div>
+          <a href="test-1/" class="sc-test-link" target="_blank">결과 보기 →</a>
+        </div>
+
+        <div class="sc-test-card" data-test="2">
+          <div class="sc-test-num">02</div>
+          <h3>Figma URL만 전달</h3>
+          <p class="sc-test-method">Figma 디자인 링크만<br>전달하고 바로 생성</p>
+          <div class="sc-test-result">
+            <span class="sc-badge gray">유사도 ~30%</span>
+            <span class="sc-badge">품질 85점</span>
+          </div>
+          <a href="test-2/" class="sc-test-link" target="_blank">결과 보기 →</a>
+        </div>
+
+        <div class="sc-test-card" data-test="3">
+          <div class="sc-test-num">03</div>
+          <h3>Figma MCP 연결</h3>
+          <p class="sc-test-method">Figma 데스크톱 앱과<br>MCP로 직접 연결</p>
+          <div class="sc-test-result">
+            <span class="sc-badge">유사도 ~65%</span>
+            <span class="sc-badge">품질 88점</span>
+          </div>
+          <a href="test-3/" class="sc-test-link" target="_blank">결과 보기 →</a>
+        </div>
+
+        <div class="sc-test-card best" data-test="4">
+          <div class="sc-best-badge">BEST</div>
+          <div class="sc-test-num">04</div>
+          <h3>업무요청서 v2 + MCP</h3>
+          <p class="sc-test-method">간결한 요청서 + MCP를<br>결합한 최적 워크플로우</p>
+          <div class="sc-test-result">
+            <span class="sc-badge green">유사도 70-75%</span>
+            <span class="sc-badge green">품질 93점</span>
+          </div>
+          <a href="test-4/" class="sc-test-link" target="_blank">결과 보기 →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 섹션 3: 라이브 결과 비교 ========== -->
+  <section class="sc-section sc-section--dark" id="compare">
+    <div class="sc-inner">
+      <div class="sc-section-header fade-up">
+        <p class="sc-label">Live Comparison</p>
+        <h2>직접 비교해보세요</h2>
+      </div>
+
+      <div class="sc-compare fade-up">
+        <div class="sc-compare-tabs">
+          <button class="sc-tab active" data-tab="1">Test 1<span>업무요청서</span></button>
+          <button class="sc-tab" data-tab="2">Test 2<span>Figma URL</span></button>
+          <button class="sc-tab" data-tab="3">Test 3<span>Figma MCP</span></button>
+          <button class="sc-tab best" data-tab="4">Test 4<span>v2 + MCP</span></button>
+        </div>
+
+        <div class="sc-compare-viewer">
+          <div class="sc-compare-frame active" data-frame="1">
+            <div class="sc-frame-placeholder">
+              <p class="sc-frame-label">Test 1: 상세 업무요청서 방식</p>
+              <p>이미지 에셋 없이 회색 플레이스홀더로 구성</p>
+              <a href="test-1/" target="_blank" class="sc-frame-btn">새 탭에서 열기 →</a>
+            </div>
+          </div>
+          <div class="sc-compare-frame" data-frame="2">
+            <div class="sc-frame-placeholder">
+              <p class="sc-frame-label">Test 2: Figma URL만 전달</p>
+              <p>이미지 에셋 없이 회색 플레이스홀더, 일부 섹션 누락</p>
+              <a href="test-2/" target="_blank" class="sc-frame-btn">새 탭에서 열기 →</a>
+            </div>
+          </div>
+          <div class="sc-compare-frame" data-frame="3">
+            <div class="sc-frame-placeholder">
+              <p class="sc-frame-label">Test 3: Figma MCP 연결</p>
+              <p>32개 에셋 자동 추출, 실제 이미지 표시</p>
+              <a href="test-3/" target="_blank" class="sc-frame-btn">새 탭에서 열기 →</a>
+            </div>
+          </div>
+          <div class="sc-compare-frame" data-frame="4">
+            <div class="sc-frame-placeholder">
+              <p class="sc-frame-label">Test 4: 업무요청서 v2 + MCP</p>
+              <p>30개 에셋 + 슬라이더 + 스크롤 애니메이션 + 폼 검증</p>
+              <a href="test-4/" target="_blank" class="sc-frame-btn">새 탭에서 열기 →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="sc-compare-stats">
+          <div class="sc-stat" id="statSimilarity">
+            <span class="sc-stat-label">시각적 유사도</span>
+            <span class="sc-stat-value">~35%</span>
+          </div>
+          <div class="sc-stat" id="statQuality">
+            <span class="sc-stat-label">코드 품질</span>
+            <span class="sc-stat-value">91/100</span>
+          </div>
+          <div class="sc-stat" id="statSections">
+            <span class="sc-stat-label">완성 섹션</span>
+            <span class="sc-stat-value">12/12</span>
+          </div>
+          <div class="sc-stat" id="statAssets">
+            <span class="sc-stat-label">에셋 추출</span>
+            <span class="sc-stat-value">0개</span>
+          </div>
+          <div class="sc-stat" id="statInteractions">
+            <span class="sc-stat-label">인터랙션</span>
+            <span class="sc-stat-value">3개</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 섹션 4: 핵심 숫자 ========== -->
+  <section class="sc-section" id="numbers">
+    <div class="sc-inner">
+      <div class="sc-section-header fade-up">
+        <p class="sc-label">Key Metrics</p>
+        <h2>숫자로 보는 AI 퍼블리싱</h2>
+        <p class="sc-section-desc">test-4 (업무요청서 v2 + Figma MCP) 기준</p>
+      </div>
+
+      <div class="sc-metrics fade-up">
+        <div class="sc-metric">
+          <div class="sc-metric-number" data-count="75" data-suffix="%">0%</div>
+          <p class="sc-metric-label">시간 절감</p>
+          <p class="sc-metric-desc">3~5일 → ~1일</p>
+        </div>
+        <div class="sc-metric">
+          <div class="sc-metric-number" data-count="93" data-suffix="/100">0/100</div>
+          <p class="sc-metric-label">코드 품질 점수</p>
+          <p class="sc-metric-desc">사람(85점) 대비 +8점</p>
+        </div>
+        <div class="sc-metric">
+          <div class="sc-metric-number" data-count="75" data-suffix="%">0%</div>
+          <p class="sc-metric-label">시각적 유사도</p>
+          <p class="sc-metric-desc">AI만으로 달성</p>
+        </div>
+        <div class="sc-metric">
+          <div class="sc-metric-number" data-count="30" data-suffix="개">0개</div>
+          <p class="sc-metric-label">에셋 자동 추출</p>
+          <p class="sc-metric-desc">이미지, SVG, 아이콘</p>
+        </div>
+      </div>
+
+      <div class="sc-bars fade-up">
+        <h3 class="sc-bars-title">기존 방식 vs AI 방식</h3>
+        <div class="sc-bar-group">
+          <div class="sc-bar-label">소요 시간</div>
+          <div class="sc-bar-row">
+            <span class="sc-bar-name">기존</span>
+            <div class="sc-bar-track">
+              <div class="sc-bar-fill old" data-width="100">
+                <span>22-36시간 (3-5일)</span>
+              </div>
+            </div>
+          </div>
+          <div class="sc-bar-row">
+            <span class="sc-bar-name">AI</span>
+            <div class="sc-bar-track">
+              <div class="sc-bar-fill new" data-width="28">
+                <span>5.5-9.5시간 (~1일)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sc-bar-group">
+          <div class="sc-bar-label">프로젝트 비용</div>
+          <div class="sc-bar-row">
+            <span class="sc-bar-name">기존</span>
+            <div class="sc-bar-track">
+              <div class="sc-bar-fill old" data-width="100">
+                <span>66~108만원</span>
+              </div>
+            </div>
+          </div>
+          <div class="sc-bar-row">
+            <span class="sc-bar-name">AI</span>
+            <div class="sc-bar-track">
+              <div class="sc-bar-fill new" data-width="27">
+                <span>16.5~28.5만원</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 섹션 5: 상세 비교표 ========== -->
+  <section class="sc-section sc-section--dark" id="detail">
+    <div class="sc-inner">
+      <div class="sc-section-header fade-up">
+        <p class="sc-label">Detailed Comparison</p>
+        <h2>4가지 방법, 어떤 차이가 있을까?</h2>
+      </div>
+
+      <div class="sc-table-wrap fade-up">
+        <table class="sc-table">
+          <thead>
+            <tr>
+              <th>항목</th>
+              <th>Test 1<br><small>업무요청서</small></th>
+              <th>Test 2<br><small>Figma URL</small></th>
+              <th>Test 3<br><small>Figma MCP</small></th>
+              <th class="best">Test 4<br><small>v2 + MCP</small></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>시각적 유사도</td>
+              <td>~35%</td>
+              <td>~30%</td>
+              <td>~65%</td>
+              <td class="best"><strong>70-75%</strong></td>
+            </tr>
+            <tr>
+              <td>코드 품질</td>
+              <td>91점</td>
+              <td>85점</td>
+              <td>88점</td>
+              <td class="best"><strong>93점</strong></td>
+            </tr>
+            <tr>
+              <td>섹션 완성</td>
+              <td>12/12</td>
+              <td>10-11/12</td>
+              <td>11/12</td>
+              <td class="best"><strong>12/12</strong></td>
+            </tr>
+            <tr>
+              <td>에셋 추출</td>
+              <td>0개</td>
+              <td>0개</td>
+              <td>32개</td>
+              <td class="best"><strong>30개</strong></td>
+            </tr>
+            <tr>
+              <td>CSS 이벤트</td>
+              <td>3개</td>
+              <td>5개</td>
+              <td>5개</td>
+              <td class="best"><strong>11개</strong></td>
+            </tr>
+            <tr>
+              <td>슬라이더</td>
+              <td class="no">✗</td>
+              <td class="no">✗</td>
+              <td class="no">✗</td>
+              <td class="best yes">✓</td>
+            </tr>
+            <tr>
+              <td>스크롤 애니메이션</td>
+              <td class="no">✗</td>
+              <td class="no">✗</td>
+              <td class="no">✗</td>
+              <td class="best yes">✓</td>
+            </tr>
+            <tr>
+              <td>폼 검증</td>
+              <td class="no">✗</td>
+              <td>기본</td>
+              <td>최소</td>
+              <td class="best yes"><strong>완전</strong></td>
+            </tr>
+            <tr>
+              <td>이미지 표시</td>
+              <td class="no">회색 박스</td>
+              <td class="no">회색 박스</td>
+              <td class="yes">실제 이미지</td>
+              <td class="best yes"><strong>실제 이미지</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 섹션 6: 워크플로우 변화 ========== -->
+  <section class="sc-section" id="workflow">
+    <div class="sc-inner">
+      <div class="sc-section-header fade-up">
+        <p class="sc-label">Workflow Change</p>
+        <h2>우리 팀의 업무가<br>이렇게 바뀝니다</h2>
+      </div>
+
+      <div class="sc-workflow fade-up">
+        <div class="sc-wf-compare">
+          <div class="sc-wf-before">
+            <h3>Before <span>기존 방식</span></h3>
+            <div class="sc-wf-timeline">
+              <div class="sc-wf-step">
+                <span class="sc-wf-time">3일</span>
+                <span class="sc-wf-task">디자인</span>
+              </div>
+              <div class="sc-wf-step old">
+                <span class="sc-wf-time">3-5일</span>
+                <span class="sc-wf-task">퍼블리싱</span>
+              </div>
+              <div class="sc-wf-step">
+                <span class="sc-wf-time">1-2일</span>
+                <span class="sc-wf-task">QA</span>
+              </div>
+            </div>
+            <p class="sc-wf-total">총 <strong>7-10일</strong></p>
+          </div>
+
+          <div class="sc-wf-arrow">→</div>
+
+          <div class="sc-wf-after">
+            <h3>After <span>AI 방식</span></h3>
+            <div class="sc-wf-timeline">
+              <div class="sc-wf-step">
+                <span class="sc-wf-time">3일</span>
+                <span class="sc-wf-task">디자인</span>
+              </div>
+              <div class="sc-wf-step new">
+                <span class="sc-wf-time">0.5일</span>
+                <span class="sc-wf-task">AI 퍼블리싱</span>
+              </div>
+              <div class="sc-wf-step new">
+                <span class="sc-wf-time">0.5-1일</span>
+                <span class="sc-wf-task">보정 + QA</span>
+              </div>
+            </div>
+            <p class="sc-wf-total">총 <strong>4-4.5일</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 역할별 변화 -->
+      <div class="sc-roles fade-up">
+        <h3 class="sc-roles-title">역할별 변화</h3>
+        <div class="sc-role-cards">
+          <div class="sc-role-card">
+            <div class="sc-role-icon">PM</div>
+            <h4>프로젝트 매니저</h4>
+            <p>업무요청서 v2를 Claude로 자동 생성</p>
+            <span class="sc-role-time">25~40분</span>
+          </div>
+          <div class="sc-role-card">
+            <div class="sc-role-icon">DS</div>
+            <h4>디자이너</h4>
+            <p>Figma 준비 체크리스트 추가</p>
+            <span class="sc-role-time">기존 업무 +30분</span>
+          </div>
+          <div class="sc-role-card">
+            <div class="sc-role-icon">DEV</div>
+            <h4>개발자</h4>
+            <p>AI 결과물 보정 + Swiper 교체</p>
+            <span class="sc-role-time">기존 대비 65-75% 단축</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 연간 효과 -->
+      <div class="sc-annual fade-up">
+        <div class="sc-annual-box">
+          <h3>연간 효과 시뮬레이션</h3>
+          <p class="sc-annual-calc">월 4건 × 12개월 = 연 48건</p>
+          <p class="sc-annual-calc">48건 × 49.5~79.5만원 절감</p>
+          <p class="sc-annual-result">연 <strong>2,376 ~ 3,816만원</strong> 절감</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 섹션 7: AI vs 사람 ========== -->
+  <section class="sc-section sc-section--dark" id="aiVsHuman">
+    <div class="sc-inner">
+      <div class="sc-section-header fade-up">
+        <p class="sc-label">AI + Human</p>
+        <h2>AI는 도구입니다.<br>어디에 쓸지가 중요합니다.</h2>
+      </div>
+
+      <div class="sc-split fade-up">
+        <div class="sc-split-col ai">
+          <h3>AI가 잘하는 것</h3>
+          <ul>
+            <li>CSS 변수 일관성 (24/25점)</li>
+            <li>BEM 네이밍 체계적 적용</li>
+            <li>시맨틱 HTML 구조화</li>
+            <li>Figma 에셋 자동 추출 (30개)</li>
+            <li>기본 인터랙션 구현</li>
+            <li>섹션별 코드 주석 정리</li>
+            <li>빠른 초안 생성 (30분)</li>
+          </ul>
+        </div>
+        <div class="sc-split-col human">
+          <h3>사람이 해야 하는 것</h3>
+          <ul>
+            <li>다중 반응형 브레이크포인트 (10개+)</li>
+            <li>Swiper, GSAP 라이브러리 연동</li>
+            <li>비디오 배경 / 복잡한 애니메이션</li>
+            <li>서버 연동 (AJAX, reCAPTCHA)</li>
+            <li>다중 폰트 / 커스텀 서체</li>
+            <li>브라우저 호환성 테스트</li>
+            <li>접근성(WCAG) 최종 검수</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sc-split-summary fade-up">
+        <p>AI가 <strong>70-75%</strong>를 만들고, 사람이 나머지 <strong>25-30%</strong>를 완성합니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 섹션 8: 다음 단계 ========== -->
+  <section class="sc-section" id="next">
+    <div class="sc-inner">
+      <div class="sc-section-header fade-up">
+        <p class="sc-label">Next Steps</p>
+        <h2>다음 프로젝트에<br>적용해봅시다</h2>
+      </div>
+
+      <div class="sc-steps fade-up">
+        <div class="sc-step-card">
+          <div class="sc-step-num">01</div>
+          <h3>이번 주</h3>
+          <p>이 결과물을 직접 체험하고<br>팀 피드백을 공유합니다</p>
+          <ul>
+            <li>4개 테스트 결과 직접 확인</li>
+            <li>개선점 / 우려사항 논의</li>
+          </ul>
+        </div>
+        <div class="sc-step-card">
+          <div class="sc-step-num">02</div>
+          <h3>다음 프로젝트</h3>
+          <p>실제 클라이언트 프로젝트에<br>Workflow C를 적용합니다</p>
+          <ul>
+            <li>업무요청서 v2 + Figma MCP</li>
+            <li>AI 초안 → 개발자 보정</li>
+          </ul>
+        </div>
+        <div class="sc-step-card">
+          <div class="sc-step-num">03</div>
+          <h3>프로세스 정착</h3>
+          <p>디자이너 가이드라인과<br>업무요청서를 표준화합니다</p>
+          <ul>
+            <li>Figma 준비 체크리스트 표준화</li>
+            <li>업무요청서 v2 양식 정착</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 푸터 ========== -->
+  <footer class="sc-footer">
+    <div class="sc-inner">
+      <p class="sc-footer-credit">Built with AI by <strong>ITSO</strong></p>
+      <p class="sc-footer-info">
+        테스트 일자: 2026.02.27~28 &nbsp;|&nbsp;
+        사용 도구: Claude Code (Opus 4.6) + Figma MCP
+      </p>
+      <p class="sc-footer-copy">&copy; 2026 ITSO. AI Publishing Showcase.</p>
+    </div>
+  </footer>
+
+  <script src="script-showcase.js"></script>
+</body>
+</html>
