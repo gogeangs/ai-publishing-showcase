@@ -1,0 +1,2118 @@
+/* ========================================
+   마라섬 프랜차이즈 창업문의 랜딩페이지
+   Design tokens from Figma MCP
+   ======================================== */
+
+:root {
+  --main-color: #381804;
+  --point-color: #937154;
+  --point-color-2: #ea5619;
+  --point-color-4: #e8dec6;
+  --point-color-5: #965d36;
+  --dark-brown: #4A2F27;
+  --beige: #ECE5D8;
+  --color-red: #a02020;
+  --bg-cream: #f7f2e9;
+  --bg-light: #fbf4e6;
+  --bg-dark: #1a1a1a;
+  --text-dark: #111;
+  --text-body: #333;
+  --text-sub: #505050;
+  --text-light: rgba(255,255,255,0.6);
+  --shadow-sm: 0 4px 16px rgba(0,0,0,0.12);
+  --shadow-md: 0 8px 24px rgba(0,0,0,0.12);
+  --shadow-lg: 0 16px 48px rgba(0,0,0,0.12);
+  --max-width: 1300px;
+  --gnb-height: 64px;
+}
+
+/* ---- Reset & Base ---- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text-dark);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  padding-bottom: 60px;
+}
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; border: none; background: none; font: inherit; }
+input, select, textarea { font: inherit; }
+del { color: #999; }
+strong { font-weight: 700; }
+em { font-style: normal; }
+
+.placeholder-image {
+  background: linear-gradient(135deg, #ddd 25%, #ccc 50%, #ddd 75%);
+  background-size: 200% 200%;
+  animation: shimmer 2s infinite;
+  min-height: 200px;
+  width: 100%;
+}
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ---- Typography Helpers ---- */
+.gradient-text {
+  background: linear-gradient(90deg, var(--main-color), #9e440b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.highlight-orange { color: var(--point-color-2); -webkit-text-fill-color: var(--point-color-2); }
+
+.section-header { text-align: center; margin-bottom: 40px; }
+.section-pretitle {
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 600;
+  font-size: 36px;
+  color: var(--main-color);
+  line-height: 1.3;
+}
+.section-title {
+  font-family: 'Cafe24ClassicType', serif;
+  font-size: 58px;
+  line-height: 1.2;
+  letter-spacing: 0.87px;
+}
+
+/* ---- Scroll fade-up ---- */
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========================================
+   01. GNB
+   ======================================== */
+.gnb {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  height: var(--gnb-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(17,17,17,0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1.5px solid var(--point-color-4);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.29);
+  transition: background 0.3s, box-shadow 0.3s;
+}
+.gnb-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: var(--max-width);
+  padding: 0 40px;
+  position: relative;
+}
+.gnb-logo {
+  position: absolute;
+  left: 40px;
+}
+.logo-text {
+  font-family: 'Cafe24ClassicType', serif;
+  font-size: 24px;
+  color: var(--point-color-4);
+}
+.gnb-menu {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+.gnb-link {
+  font-family: 'HakgyoansimMulgyeol', sans-serif;
+  font-size: 18px;
+  color: var(--point-color-4);
+  letter-spacing: -0.45px;
+  line-height: 26px;
+  padding: 5px 14px;
+  border-radius: 50px;
+  width: 110px;
+  text-align: center;
+  transition: all 0.3s;
+}
+.gnb-link:hover,
+.gnb-link.active {
+  background: var(--point-color-4);
+  color: #191919;
+}
+.gnb-cta {
+  position: absolute;
+  right: 40px;
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: white;
+  background: var(--point-color-2);
+  padding: 8px 20px;
+  border-radius: 50px;
+  transition: opacity 0.3s;
+}
+.gnb-cta:hover { opacity: 0.9; }
+.gnb-hamburger {
+  display: none;
+  position: absolute;
+  right: 20px;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+}
+.gnb-hamburger span {
+  width: 24px;
+  height: 2px;
+  background: var(--point-color-4);
+  transition: 0.3s;
+}
+.gnb-corner { display: none; }
+
+/* Mobile Menu */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(17,17,17,0.95);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu-close {
+  position: absolute;
+  top: 20px; right: 20px;
+  font-size: 36px;
+  color: white;
+}
+.mobile-menu-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+.mobile-menu-link {
+  font-family: 'HakgyoansimMulgyeol', sans-serif;
+  font-size: 28px;
+  color: var(--point-color-4);
+}
+.mobile-menu-link.cta {
+  background: var(--point-color-2);
+  color: white;
+  padding: 12px 40px;
+  border-radius: 50px;
+  margin-top: 16px;
+}
+
+/* ========================================
+   02. Hero
+   ======================================== */
+.hero {
+  display: flex;
+  height: 880px;
+  margin-top: var(--gnb-height);
+  overflow: hidden;
+}
+.hero-left {
+  flex: 1;
+  background: #2a1a0a;
+  position: relative;
+  overflow: hidden;
+}
+.hero-left .hero-placeholder-img {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #3a2a1a, #2a1808);
+}
+.hero-center {
+  flex: 0 0 520px;
+  background: var(--bg-cream);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  padding: 40px;
+}
+.hero-badge {
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 600;
+  font-size: 22px;
+  color: var(--main-color);
+  margin-bottom: 8px;
+}
+.hero-logo {
+  font-family: 'Cafe24ClassicType', serif;
+  font-size: 80px;
+  background: linear-gradient(90deg, var(--main-color), #9e440b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
+}
+.hero-sub {
+  font-family: 'Paperlogy', sans-serif;
+  font-size: 16px;
+  color: var(--point-color);
+  letter-spacing: 2px;
+  margin-top: 4px;
+}
+.hero-model-placeholder {
+  width: 300px;
+  height: 400px;
+  margin-top: 20px;
+  background: linear-gradient(180deg, transparent, rgba(0,0,0,0.05));
+}
+.hero-right {
+  flex: 1;
+  position: relative;
+  background: #1a1008;
+  overflow: hidden;
+}
+.hero-right-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(26,16,8,0.7);
+}
+.hero-right-content {
+  position: relative;
+  z-index: 1;
+  padding: 100px 60px;
+  color: white;
+}
+.hero-right-label {
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--point-color-4);
+  margin-bottom: 12px;
+}
+.hero-right-title {
+  font-family: 'Cafe24ClassicType', serif;
+  font-size: 44px;
+  line-height: 1.2;
+  color: white;
+  margin-bottom: 40px;
+}
+.hero-stat {
+  margin-bottom: 24px;
+}
+.hero-stat-label {
+  font-size: 16px;
+  color: var(--text-light);
+}
+.hero-stat-value {
+  font-family: 'Paperlogy', sans-serif;
+  font-size: 20px;
+  color: white;
+}
+.hero-stat-value strong {
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 800;
+  font-size: 48px;
+  color: #fffc94;
+  letter-spacing: -1px;
+}
+
+/* ========================================
+   03. 브랜드1 (4가지 경쟁력)
+   ======================================== */
+.brand {
+  background: var(--bg-cream);
+  padding: 100px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.brand-desc {
+  font-size: 22px;
+  color: #444;
+  line-height: 1.48;
+  margin-bottom: 50px;
+  letter-spacing: -0.55px;
+}
+.brand-desc strong { color: var(--main-color); font-weight: 800; }
+.brand-cards {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.brand-card {
+  width: 300px;
+  height: 406px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  box-shadow: var(--shadow-lg);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f5f1e8;
+  border: 2px solid var(--point-color-4);
+}
+.brand-card--dark { background: var(--dark-brown); }
+.brand-card--dark .brand-card-label { color: white; }
+.brand-card--dark .brand-card-desc { color: rgba(255,255,255,0.9); }
+.brand-card-label {
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 600;
+  font-size: 32px;
+  color: var(--main-color);
+  letter-spacing: -0.8px;
+}
+.brand-card-value {
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 800;
+  font-size: 40px;
+  color: var(--point-color-2);
+  padding-bottom: 16px;
+}
+.brand-card-value span { font-size: 52px; }
+.brand-card-desc {
+  font-size: 20px;
+  color: #4f2323;
+  line-height: 1.4;
+  letter-spacing: -0.5px;
+}
+
+/* ========================================
+   04. Header (실매출 배너)
+   ======================================== */
+.sales-banner {
+  position: relative;
+  height: 423px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #222;
+  overflow: hidden;
+  text-align: center;
+}
+.sales-banner-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/images/header-bg.jpg') center/cover;
+}
+.sales-banner-content { position: relative; z-index: 1; }
+.sales-banner-pretitle {
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 600;
+  font-size: 36px;
+  color: var(--point-color-4);
+  line-height: 1.3;
+}
+.sales-banner-title {
+  font-family: 'Cafe24ClassicType', serif;
+  font-size: 58px;
+  background: linear-gradient(171deg, #fff7e5 25%, var(--point-color-4) 70%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+}
+.sales-banner-highlight {
+  font-family: 'Cafe24ClassicType', serif;
+  font-size: 72px;
+  background: linear-gradient(90deg, var(--point-color-2) 66%, #ff9970 85%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -1.8px;
+}
+.sales-banner-model {
+  position: absolute;
+  right: 140px;
+  bottom: 0;
+  width: 307px;
+  height: 320px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.1));
+}
+
+/* ========================================
+   05. 운영성적표
+   ======================================== */
+.report {
+  background: linear-gradient(135deg, #2a1a0a, #1a1008);
+  position: relative;
+  overflow: hidden;
+}
+.report-inner {
+  display: flex;
+  min-height: 750px;
+}
+.report-left {
+  width: 40%;
+  padding: 100px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.report-stat-label {
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 600;
+  font-size: 28px;
+  color: white;
+  letter-spacing: -0.7px;
+}
+.report-stat-value {
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 700;
+  color: #fffc94;
+}
+.report-stat-value span {
+  font-size: 64px;
+  letter-spacing: -1.6px;
+}
+.report-stat-value em {
+  font-size: 40px;
+  letter-spacing: -1px;
+}
+.report-stat-note {
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--text-light);
+  letter-spacing: -0.4px;
+}
+.report-stat { position: relative; }
+.report-divider {
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.15);
+}
+.report-profit-badge {
+  position: absolute;
+  right: -80px;
+  top: 20px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #5a3a1a, #3a2210);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-shadow: 0 2px 2px rgba(0,0,0,0.25);
+}
+.report-profit-badge .badge-label { font-size: 16px; font-weight: 700; }
+.report-profit-badge .badge-value { font-size: 28px; font-weight: 700; }
+.report-right {
+  flex: 1;
+  background: rgba(241,231,222,0.1);
+  backdrop-filter: blur(8px);
+  padding: 100px 60px;
+  overflow: auto;
+}
+.report-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px 40px;
+  justify-content: center;
+}
+.report-card {
+  width: 337px;
+  height: 188px;
+  background: var(--bg-cream);
+  border: 2px solid var(--point-color-4);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+}
+.report-card-name {
+  background: var(--main-color);
+  color: #f5f1e8;
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  padding: 3px 16px;
+  border-radius: 100px;
+  display: inline-block;
+}
+.report-card-type {
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  color: var(--main-color);
+  margin-left: 6px;
+}
+.report-card-value {
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  color: var(--main-color);
+  letter-spacing: 0.4px;
+  margin-top: 8px;
+}
+.report-card-value em { font-size: 28px; }
+.report-card-date {
+  font-size: 15px;
+  color: var(--main-color);
+  opacity: 0.7;
+  margin-top: 4px;
+}
+
+/* ========================================
+   06. 직영경쟁력 (손익표)
+   ======================================== */
+.profit-section {
+  background: var(--bg-cream);
+  padding: 100px 0;
+  text-align: center;
+}
+.profit-banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  background: white;
+  border: 1px solid var(--main-color);
+  padding: 16px 40px;
+  box-shadow: var(--shadow-md);
+  margin-bottom: 50px;
+  position: relative;
+}
+.profit-banner p {
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 600;
+  font-size: 32px;
+  color: var(--text-dark);
+}
+.profit-banner strong {
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  color: var(--point-color-2);
+}
+.profit-bar-left, .profit-bar-right {
+  width: 8px;
+  height: 70px;
+  background: var(--point-color-2);
+  border-radius: 0 0 4px 4px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.profit-bar-left { left: -1px; }
+.profit-bar-right { right: -1px; }
+.profit-cards {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  max-width: var(--max-width);
+  margin: 0 auto 50px;
+  padding: 0 20px;
+}
+.profit-card {
+  background: white;
+  border: 1px solid var(--main-color);
+  box-shadow: var(--shadow-md);
+  padding: 15px;
+  width: 590px;
+}
+.profit-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  padding: 40px;
+  border-bottom: 1px solid var(--main-color);
+}
+.profit-card-name {
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 600;
+  font-size: 32px;
+  color: var(--text-dark);
+}
+.profit-card-info { flex: 1; }
+.profit-card-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+.profit-card-item-label {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--main-color);
+}
+.profit-card-item-label--lg { font-size: 20px; }
+.profit-card-item-value {
+  font-weight: 700;
+  font-size: 28px;
+  color: #191919;
+}
+.profit-card-item-value--lg { font-size: 32px; }
+.profit-card-item-value em { font-size: 16px; }
+.profit-card-info hr {
+  border: none;
+  border-top: 1px dashed rgba(0,0,0,0.15);
+  margin: 16px 0;
+}
+.profit-badge {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #5a3a1a, #3a2210);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-shadow: 0 2px 2px rgba(0,0,0,0.25);
+  box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+  flex-shrink: 0;
+}
+.profit-badge span { font-size: 16px; font-weight: 700; line-height: 1.1; }
+.profit-badge strong { font-size: 28px; font-weight: 700; line-height: 1.1; }
+.profit-card-table { padding: 40px; }
+.profit-card-table table { width: 100%; border-collapse: collapse; text-align: center; }
+.profit-card-table thead tr {
+  border-top: 2px solid var(--point-color-5);
+  border-bottom: 2px solid var(--point-color-5);
+}
+.profit-card-table thead th,
+.profit-card-table thead td {
+  background: var(--point-color-4);
+  padding: 10px;
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--text-dark);
+}
+.profit-card-table tbody td,
+.profit-card-table tbody th {
+  padding: 10px;
+  font-size: 16px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+.profit-card-table tbody th {
+  background: var(--point-color-4);
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 600;
+  width: 38%;
+}
+.profit-card-table .num {
+  font-family: 'GmarketSans', sans-serif;
+  font-weight: 300;
+  color: var(--text-sub);
+}
+.profit-card-table .total-row td,
+.profit-card-table .total-row th {
+  background: var(--point-color-2);
+  color: white;
+  font-weight: 600;
+  font-family: 'Paperlogy', sans-serif;
+}
+.profit-card-table .total-row .num {
+  color: white;
+  font-family: 'GmarketSans', sans-serif;
+  font-weight: 500;
+}
+.profit-bottom-text {
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 600;
+  font-size: 32px;
+  color: var(--text-dark);
+  line-height: 1.5;
+}
+
+/* ========================================
+   07. 매출자료 1 (마이프차 인증)
+   ======================================== */
+.myfranchise {
+  background: white;
+  padding: 100px 0;
+}
+.myfranchise-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.myfranchise-speech {
+  margin: 40px auto;
+  max-width: 600px;
+}
+.speech-bubble {
+  background: white;
+  border: 1px solid var(--text-dark);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  box-shadow: 8px 12px 40px rgba(0,0,0,0.12);
+  position: relative;
+}
+.speech-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 20px;
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 12px solid white;
+}
+.speech-logo {
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--point-color-2);
+  white-space: nowrap;
+}
+.speech-bubble p { font-size: 15px; color: var(--text-body); }
+.myfranchise-content {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+  margin-top: 60px;
+}
+.myfranchise-image { flex: 1; }
+.myfranchise-qa { flex: 1; }
+.qa-question {
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  color: var(--main-color);
+  margin-bottom: 20px;
+}
+.qa-answer {
+  font-size: 20px;
+  color: var(--text-body);
+  line-height: 1.6;
+}
+.qa-answer strong { color: var(--point-color-2); font-size: 24px; }
+
+/* ========================================
+   08. 실매출 공개 (원형차트)
+   ======================================== */
+.donut-section {
+  background: var(--bg-light);
+  padding: 140px 0 100px;
+  position: relative;
+  overflow: hidden;
+}
+.donut-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.donut-left { flex: 0 0 300px; }
+.donut-pretitle {
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  color: var(--main-color);
+  margin-bottom: 16px;
+}
+.donut-title {
+  font-family: 'Cafe24ClassicType', serif;
+  font-size: 56px;
+  line-height: 1.3;
+}
+.donut-model-area { margin-top: 60px; position: relative; }
+.donut-model-placeholder {
+  width: 250px;
+  height: 350px;
+  background: linear-gradient(180deg, #ddd, #ccc);
+}
+.donut-model-label {
+  position: absolute;
+  bottom: 0;
+  right: -40px;
+  font-family: 'Paperlogy', sans-serif;
+  font-size: 36px;
+  color: var(--text-body);
+  transform: rotate(3.6deg);
+  text-align: center;
+}
+.donut-model-label strong { font-weight: 700; }
+.donut-center {
+  flex: 0 0 520px;
+  position: relative;
+}
+.donut-badge-top {
+  position: absolute;
+  top: -20px;
+  right: 40px;
+  background: white;
+  border: 1px solid var(--text-dark);
+  border-radius: 12px;
+  padding: 12px 20px;
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  box-shadow: var(--shadow-md);
+  z-index: 2;
+}
+.donut-chart {
+  width: 520px;
+  height: 520px;
+  position: relative;
+}
+
+.donut-ring {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--point-color-2) 0% 30%,
+    #7a5040 30% 43%,
+    #937154 43% 53%,
+    #b0956e 53% 63%,
+    #555 63% 73%,
+    var(--point-color-2) 73% 100%
+  );
+  position: relative;
+}
+.donut-ring::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 55%;
+  height: 55%;
+  border-radius: 50%;
+  background: #e8e0d0;
+}
+.donut-center-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 1;
+}
+.donut-center-text span {
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  color: var(--main-color);
+  display: block;
+}
+.donut-center-text strong {
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 800;
+  font-size: 28px;
+  color: var(--point-color-2);
+}
+.donut-label {
+  position: absolute;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  font-weight: 600;
+}
+.donut-label strong { font-size: 24px; font-weight: 700; display: block; }
+.donut-label--food { right: 10px; bottom: 35%; }
+.donut-label--labor { bottom: 10%; left: 45%; }
+.donut-label--delivery { bottom: 15%; left: 15%; }
+.donut-label--rent { left: 0; top: 55%; }
+.donut-label--ad { left: 5%; top: 30%; }
+.donut-profit-badge {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 100px;
+  background: linear-gradient(135deg, var(--point-color-2), #c0400a);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  z-index: 2;
+}
+.donut-profit-badge span { font-size: 28px; font-weight: 600; }
+.donut-profit-badge strong { font-size: 48px; font-weight: 700; }
+.donut-right { flex: 1; }
+.donut-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--point-color-5);
+}
+.donut-table td {
+  padding: 10px;
+  font-size: 16px;
+  border-bottom: 1px solid rgba(150,93,54,0.2);
+}
+.donut-table .num { text-align: right; color: #222; font-weight: 400; }
+.donut-table .total td {
+  background: white;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+.donut-table .profit-row td {
+  background: var(--point-color-2);
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+}
+.donut-table .profit-row .num {
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  color: white;
+}
+.badge-sm {
+  background: white;
+  color: var(--point-color-2);
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  padding: 3px 10px;
+  display: inline-block;
+}
+.donut-note {
+  font-size: 15px;
+  color: var(--text-sub);
+  margin-top: 16px;
+  line-height: 1.3;
+}
+
+/* ========================================
+   09. SNS
+   ======================================== */
+.sns-section {
+  background: var(--bg-cream);
+  padding: 100px 0;
+  overflow: hidden;
+}
+.sns-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+.sns-text { flex: 0 0 320px; }
+.sns-pretitle {
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 600;
+  font-size: 28px;
+  color: var(--main-color);
+  margin-bottom: 8px;
+}
+.sns-title {
+  font-family: 'Cafe24ClassicType', serif;
+  font-size: 48px;
+  margin-bottom: 24px;
+}
+.sns-desc {
+  font-size: 18px;
+  color: var(--text-body);
+  line-height: 1.6;
+}
+.sns-model { flex-shrink: 0; }
+.sns-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  flex: 1;
+}
+.sns-card {
+  aspect-ratio: 1;
+  border-radius: 8px;
+  min-height: 150px;
+}
+
+/* ========================================
+   10. 메뉴경쟁력 (시그니처 메뉴)
+   ======================================== */
+.menu-section {
+  background: var(--main-color);
+  padding: 100px 0;
+  overflow: hidden;
+}
+.menu-section .section-pretitle { color: var(--point-color-4); }
+.menu-section .section-title {
+  background: linear-gradient(90deg, var(--point-color-4), #fff);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+.menu-slider {
+  max-width: 1100px;
+  margin: 50px auto 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.slider-track {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  overflow: hidden;
+  padding: 30px 0;
+  justify-content: center;
+}
+.slider-item {
+  flex: 0 0 250px;
+  height: 300px;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.5s, opacity 0.5s;
+  opacity: 0.5;
+  transform: scale(0.85);
+}
+.slider-item.active {
+  flex: 0 0 350px;
+  height: 400px;
+  opacity: 1;
+  transform: scale(1);
+}
+.slider-arrow {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+  z-index: 2;
+  flex-shrink: 0;
+}
+.slider-arrow:hover { background: rgba(255,255,255,0.3); }
+.slider-active-name {
+  text-align: center;
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  color: white;
+  margin-top: 20px;
+  flex-basis: 100%;
+}
+
+/* ========================================
+   11. 매출자료 2 (업종변경)
+   ======================================== */
+.conversion-section {
+  background: white;
+  padding: 100px 0;
+  text-align: center;
+}
+.conversion-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.conversion-pretitle {
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 600;
+  font-size: 28px;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+.conversion-title {
+  font-family: 'Cafe24ClassicType', serif;
+  font-size: 52px;
+  margin-bottom: 50px;
+}
+.conversion-compare {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+.conversion-before, .conversion-after {
+  width: 400px;
+  text-align: center;
+}
+.conversion-tag {
+  display: inline-block;
+  padding: 4px 20px;
+  border-radius: 50px;
+  background: #ddd;
+  color: #666;
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+.conversion-tag--active {
+  background: var(--point-color-2);
+  color: white;
+}
+.conversion-store {
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--main-color);
+  margin-top: 16px;
+}
+.conversion-amount {
+  font-size: 18px;
+  color: var(--text-body);
+  margin-top: 8px;
+  line-height: 1.5;
+}
+.conversion-amount strong { font-size: 24px; }
+.conversion-arrow {
+  font-size: 40px;
+  color: var(--point-color-2);
+  font-weight: 700;
+}
+.conversion-badge {
+  display: inline-block;
+  background: var(--point-color-2);
+  color: white;
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  padding: 12px 32px;
+  border-radius: 50px;
+  margin-bottom: 24px;
+}
+.conversion-bottom {
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  color: var(--text-dark);
+}
+
+/* ========================================
+   12. 객단가 1 (토핑 계산)
+   ======================================== */
+.topping-section {
+  background: var(--bg-cream);
+  padding: 100px 0;
+  overflow: hidden;
+}
+.topping-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+.topping-visual {
+  position: relative;
+  flex: 0 0 400px;
+  height: 400px;
+}
+.topping-circle {
+  position: absolute;
+  border-radius: 50%;
+}
+.topping-circle--outer {
+  width: 400px;
+  height: 400px;
+  top: 0; left: 0;
+  background: rgba(234,86,25,0.15);
+}
+.topping-circle--inner {
+  width: 300px;
+  height: 300px;
+  top: 50px; left: 50px;
+  background: rgba(234,86,25,0.25);
+}
+.topping-center-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.topping-price-tag {
+  display: block;
+  margin-top: 8px;
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--point-color-2);
+}
+.topping-calc { flex: 1; }
+.topping-calc-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: var(--text-body);
+}
+.topping-calc-value {
+  font-weight: 700;
+  font-size: 28px;
+}
+.topping-calc-result {
+  background: var(--main-color);
+  color: white;
+  padding: 20px 30px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+.topping-calc-result .topping-calc-label { color: white; }
+.topping-calc-value-big {
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 800;
+  font-size: 48px;
+}
+.topping-calc-note {
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
+}
+.topping-bottom {
+  text-align: center;
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 600;
+  font-size: 28px;
+  color: var(--main-color);
+  margin-top: 50px;
+}
+
+/* ========================================
+   13. 객단가 2 (다점포)
+   ======================================== */
+.multistore-section {
+  background: white;
+  padding: 80px 0;
+}
+.multistore-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  gap: 60px;
+  justify-content: center;
+}
+.multistore-group { text-align: center; }
+.multistore-count {
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  color: var(--main-color);
+  margin-bottom: 20px;
+}
+.multistore-cards {
+  display: flex;
+  gap: 16px;
+}
+.multistore-card {
+  width: 180px;
+  border-radius: 12px;
+  border: 2px solid var(--point-color-4);
+}
+
+/* ========================================
+   14. 인테리어
+   ======================================== */
+.interior-section {
+  background: var(--bg-cream);
+  padding: 100px 0;
+}
+.interior-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 40px;
+}
+.interior-tab {
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  padding: 12px 40px;
+  border: 1px solid var(--main-color);
+  background: white;
+  color: var(--text-body);
+  transition: all 0.3s;
+}
+.interior-tab:first-child { border-radius: 8px 0 0 8px; }
+.interior-tab:last-child { border-radius: 0 8px 8px 0; }
+.interior-tab.active {
+  background: var(--main-color);
+  color: white;
+}
+.interior-images {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.interior-images.hidden { display: none; }
+.interior-img {
+  flex: 1;
+  height: 360px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* ========================================
+   15. 창업비용 (테이블)
+   ======================================== */
+.cost-section {
+  background: white;
+  padding: 100px 0;
+}
+.cost-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+.cost-table-wrap {
+  position: relative;
+  margin: 40px 0;
+}
+.cost-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+.cost-table thead th {
+  background: var(--main-color);
+  color: white;
+  padding: 14px;
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+}
+.cost-table tbody td {
+  padding: 14px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  font-size: 16px;
+}
+.cost-table tbody td:first-child {
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 600;
+  background: var(--point-color-4);
+}
+.cost-table tbody td:last-child { width: 160px; }
+.exempt-row { position: relative; }
+.cost-stamp {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 700;
+  font-size: 64px;
+  color: #c0220a;
+  border: 6px solid #c0220a;
+  border-radius: 12px;
+  padding: 8px 24px;
+  transform: rotate(-15deg);
+  opacity: 0;
+  transition: opacity 0.5s, transform 0.5s;
+  z-index: 2;
+  background: rgba(255,255,255,0.8);
+}
+.cost-stamp.visible {
+  opacity: 1;
+  transform: rotate(-15deg) scale(1);
+  animation: stampBounce 0.4s ease-out;
+}
+@keyframes stampBounce {
+  0% { transform: rotate(-15deg) scale(2); opacity: 0; }
+  60% { transform: rotate(-15deg) scale(0.9); opacity: 1; }
+  100% { transform: rotate(-15deg) scale(1); opacity: 1; }
+}
+.cost-total { margin-top: 30px; }
+.cost-total-before {
+  font-size: 24px;
+  color: #999;
+  margin-bottom: 8px;
+}
+.cost-total-promo {
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 700;
+  font-size: 36px;
+  color: var(--main-color);
+}
+.cost-badge {
+  display: inline-block;
+  background: var(--point-color-2);
+  color: white;
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  padding: 8px 20px;
+  border-radius: 50px;
+  margin-top: 12px;
+}
+
+/* ========================================
+   16. 오픈절차
+   ======================================== */
+.process-section {
+  background: var(--point-color-2);
+  padding: 100px 0;
+}
+.process-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+  background: white;
+  border: 1.5px solid var(--main-color);
+  border-radius: 8px;
+  padding: 60px 40px;
+}
+.process-section .section-pretitle { margin-bottom: 4px; }
+.process-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+.process-step {
+  width: 200px;
+  background: #f9f6f0;
+  border: 1px solid var(--point-color-4);
+  border-radius: 12px;
+  padding: 30px 20px;
+  text-align: center;
+}
+.process-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 12px;
+  background: var(--main-color);
+  color: white;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+.process-step h4 {
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--main-color);
+  margin-bottom: 8px;
+}
+.process-step p {
+  font-size: 14px;
+  color: var(--text-sub);
+  line-height: 1.4;
+}
+.process-arrow {
+  font-size: 24px;
+  color: var(--point-color);
+}
+
+/* ========================================
+   17. 가맹점찾기
+   ======================================== */
+.store-section {
+  background: var(--bg-cream);
+  padding: 80px 0;
+}
+.store-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+.store-title {
+  font-family: 'Cafe24ClassicType', serif;
+  font-size: 44px;
+  background: linear-gradient(90deg, var(--main-color), #9e440b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px;
+}
+.store-subtitle {
+  font-size: 18px;
+  color: var(--text-sub);
+  margin-bottom: 40px;
+}
+.store-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 32px;
+}
+.store-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  text-align: left;
+}
+.store-img { height: 180px; }
+.store-card h4 {
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--main-color);
+  padding: 12px 16px 4px;
+}
+.store-card p {
+  font-size: 14px;
+  color: var(--text-sub);
+  padding: 0 16px 16px;
+}
+.store-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.page-arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--main-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: var(--main-color);
+  transition: all 0.3s;
+}
+.page-arrow:hover {
+  background: var(--main-color);
+  color: white;
+}
+.page-current {
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--main-color);
+}
+
+/* ========================================
+   18. 창업문의 (폼)
+   ======================================== */
+.inquiry-section {
+  background: var(--dark-brown);
+  padding: 150px 0 100px;
+  position: relative;
+  overflow: hidden;
+}
+.inquiry-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(64,50,50,0.9), rgba(64,50,50,0.95));
+}
+.inquiry-inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.inquiry-card {
+  background: white;
+  padding: 20px;
+  box-shadow: var(--shadow-md);
+}
+.inquiry-card > .inquiry-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.inquiry-card > form {
+  border: 1.5px solid var(--main-color);
+  padding: 60px;
+}
+.inquiry-title {
+  font-family: 'Cafe24ClassicType', serif;
+  font-size: 58px;
+  text-align: center;
+  padding: 30px 0;
+}
+.inquiry-form {
+  position: relative;
+}
+.form-row {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 24px;
+}
+.form-row--full .form-group { flex: 1; }
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.form-group label:first-child {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--text-body);
+}
+.form-group input[type="text"],
+.form-group input[type="tel"],
+.form-group select,
+.form-group textarea {
+  border: 1px solid rgba(17,17,17,0.16);
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 16px;
+  height: 44px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+.form-group textarea {
+  height: auto;
+  min-height: 100px;
+  resize: vertical;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--main-color);
+}
+.form-group input.error,
+.form-group select.error {
+  border-color: var(--color-red);
+}
+.form-group select {
+  appearance: none;
+  -webkit-appearance: none;
+  background: white url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5' fill='none' stroke='%23333' stroke-width='2'/%3E%3C/svg%3E") right 10px center no-repeat;
+  padding-right: 36px;
+}
+.radio-group {
+  display: flex;
+  gap: 30px;
+  height: 44px;
+  align-items: center;
+}
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  color: var(--text-dark);
+  cursor: pointer;
+}
+.radio-label input { display: none; }
+.radio-custom {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(17,17,17,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+}
+.radio-label input:checked + .radio-custom {
+  background: var(--text-dark);
+}
+.radio-label input:checked + .radio-custom::after {
+  content: '✓';
+  color: white;
+  font-size: 16px;
+}
+.form-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 24px;
+  margin-top: 24px;
+}
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.checkbox-label input { display: none; }
+.checkbox-custom {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--main-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.checkbox-custom::after {
+  content: '✓';
+  color: white;
+  font-size: 16px;
+}
+.checkbox-label strong {
+  color: var(--main-color);
+  font-weight: 600;
+}
+.btn-submit {
+  background: var(--main-color);
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 12px 40px;
+  border-radius: 50px;
+  width: 160px;
+  height: 48px;
+  transition: opacity 0.3s;
+}
+.btn-submit:hover { opacity: 0.9; }
+
+/* ========================================
+   19. Footer
+   ======================================== */
+.footer {
+  background: var(--bg-dark);
+  color: #aaa;
+  padding: 40px 0 80px;
+}
+.footer-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 40px;
+}
+.footer-top { margin-bottom: 24px; }
+.footer-privacy {
+  display: inline-block;
+  border: 1px solid #555;
+  border-radius: 4px;
+  padding: 6px 16px;
+  font-size: 14px;
+  color: #ccc;
+}
+.footer-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  margin-bottom: 24px;
+}
+.footer-logo {
+  flex-shrink: 0;
+}
+.footer-logo-text {
+  font-family: 'Cafe24ClassicType', serif;
+  font-size: 36px;
+  color: white;
+  display: block;
+}
+.footer-logo-sub {
+  font-size: 14px;
+  color: #888;
+}
+.footer-info {
+  flex: 1;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.footer-contact {
+  text-align: right;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.footer-contact strong { color: white; }
+.footer-copyright {
+  font-size: 13px;
+  color: #666;
+  margin-top: 16px;
+}
+
+/* ========================================
+   20. Top 버튼
+   ======================================== */
+.top-btn {
+  position: fixed;
+  right: 24px;
+  bottom: 90px;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--main-color);
+  color: white;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  z-index: 999;
+}
+.top-btn.visible {
+  opacity: 1;
+  visibility: visible;
+}
+.top-btn:hover { background: var(--point-color-2); }
+
+/* ========================================
+   21. 하단 문의바
+   ======================================== */
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  border-top: 1px solid var(--point-color-4);
+  box-shadow: 0 -4px 16px rgba(0,0,0,0.1);
+  z-index: 998;
+  transition: transform 0.3s;
+}
+.bottom-bar.hidden { transform: translateY(100%); }
+.bottom-bar-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 10px 20px;
+}
+.bottom-bar-phone {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+.bottom-bar-phone span {
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--main-color);
+}
+.bottom-bar-phone strong {
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--main-color);
+}
+.bottom-bar-form {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+.bottom-bar-form input,
+.bottom-bar-form select {
+  border: 1px solid rgba(17,17,17,0.16);
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 14px;
+  height: 38px;
+  flex: 1;
+  min-width: 0;
+}
+.bottom-bar-form select {
+  appearance: none;
+  -webkit-appearance: none;
+  background: white url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5' fill='none' stroke='%23333' stroke-width='2'/%3E%3C/svg%3E") right 8px center no-repeat;
+}
+.bottom-bar-agree {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-sub);
+  white-space: nowrap;
+  cursor: pointer;
+}
+.bottom-bar-agree input { width: 18px; height: 18px; }
+.btn-bottom-submit {
+  background: var(--main-color);
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 8px 24px;
+  border-radius: 4px;
+  white-space: nowrap;
+  height: 38px;
+  transition: opacity 0.3s;
+}
+.btn-bottom-submit:hover { opacity: 0.9; }
+
+/* ========================================
+   RESPONSIVE - 1280px
+   ======================================== */
+@media (max-width: 1280px) {
+  .hero-center { flex: 0 0 400px; }
+  .hero-logo { font-size: 60px; }
+  .hero-stat-value strong { font-size: 36px; }
+  .section-title { font-size: 46px; }
+  .brand-cards { flex-wrap: wrap; gap: 20px; }
+  .brand-card { width: 280px; height: 380px; }
+  .profit-cards { flex-direction: column; align-items: center; }
+  .profit-card { width: 100%; max-width: 700px; }
+  .donut-inner { flex-wrap: wrap; }
+  .donut-left { flex: 0 0 100%; text-align: center; }
+  .donut-center { flex: 0 0 auto; margin: 0 auto; }
+  .donut-right { flex: 0 0 100%; }
+  .topping-inner { flex-direction: column; align-items: center; text-align: center; }
+  .topping-visual { flex: none; }
+  .conversion-compare { flex-direction: column; }
+  .sns-inner { flex-wrap: wrap; }
+  .sns-text { flex: 0 0 100%; }
+  .store-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ========================================
+   RESPONSIVE - 768px (Mobile)
+   ======================================== */
+@media (max-width: 768px) {
+  :root { --gnb-height: 56px; }
+  body { padding-bottom: 56px; }
+
+  /* GNB Mobile */
+  .gnb-menu, .gnb-cta { display: none; }
+  .gnb-hamburger { display: flex; }
+  .gnb-logo { left: 20px; }
+
+  /* Hero */
+  .hero {
+    flex-direction: column;
+    height: auto;
+  }
+  .hero-left { height: 200px; }
+  .hero-center { flex: none; padding: 40px 20px; }
+  .hero-center .hero-logo { font-size: 48px; }
+  .hero-right { padding: 0; }
+  .hero-right-content { padding: 40px 20px; }
+  .hero-right-title { font-size: 32px; }
+  .hero-stat-value strong { font-size: 32px; }
+  .hero-model-placeholder { width: 200px; height: 280px; }
+
+  /* Section titles */
+  .section-pretitle { font-size: 24px; }
+  .section-title { font-size: 36px; }
+
+  /* Brand */
+  .brand { padding: 60px 0; }
+  .brand-desc { font-size: 16px; padding: 0 20px; }
+  .brand-cards { flex-direction: column; align-items: center; }
+  .brand-card { width: 100%; max-width: 320px; height: 340px; }
+
+  /* Sales banner */
+  .sales-banner { height: auto; padding: 60px 20px; }
+  .sales-banner-pretitle { font-size: 22px; }
+  .sales-banner-title { font-size: 36px; }
+  .sales-banner-highlight { font-size: 48px; }
+  .sales-banner-model { display: none; }
+
+  /* Report */
+  .report-inner { flex-direction: column; }
+  .report-left { width: 100%; padding: 40px 20px; }
+  .report-right { padding: 40px 20px; }
+  .report-cards { gap: 20px; }
+  .report-card { width: 100%; }
+  .report-stat-value span { font-size: 48px; }
+  .report-profit-badge { right: 0; }
+
+  /* Profit */
+  .profit-section { padding: 60px 0; }
+  .profit-banner { flex-wrap: wrap; padding: 16px 20px; }
+  .profit-banner p { font-size: 22px; }
+  .profit-banner strong { font-size: 28px; }
+  .profit-card-header { flex-direction: column; gap: 16px; padding: 20px; }
+  .profit-card-table { padding: 20px; overflow-x: auto; }
+  .profit-bottom-text { font-size: 20px; padding: 0 20px; }
+
+  /* Donut */
+  .donut-section { padding: 80px 0 60px; }
+  .donut-inner { flex-direction: column; }
+  .donut-left { flex: none; text-align: center; }
+  .donut-title { font-size: 36px; }
+  .donut-center { flex: none; width: 100%; max-width: 400px; margin: 0 auto; }
+  .donut-chart { width: 100%; height: auto; aspect-ratio: 1; }
+  .donut-ring { width: 100%; height: 100%; }
+  .donut-right { flex: none; width: 100%; overflow-x: auto; }
+  .donut-model-area { display: none; }
+
+  /* SNS */
+  .sns-inner { flex-direction: column; }
+  .sns-model { display: none; }
+  .sns-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Menu slider */
+  .menu-section { padding: 60px 0; }
+  .slider-item { flex: 0 0 200px; height: 240px; }
+  .slider-item.active { flex: 0 0 280px; height: 320px; }
+
+  /* Conversion */
+  .conversion-compare { flex-direction: column; gap: 20px; }
+  .conversion-before, .conversion-after { width: 100%; }
+  .conversion-title { font-size: 36px; }
+
+  /* Topping */
+  .topping-inner { flex-direction: column; gap: 30px; }
+  .topping-visual { flex: none; width: 300px; height: 300px; }
+  .topping-circle--outer { width: 300px; height: 300px; }
+  .topping-circle--inner { width: 220px; height: 220px; top: 40px; left: 40px; }
+  .topping-calc-result { flex-direction: column; text-align: center; }
+
+  /* Multistore */
+  .multistore-inner { flex-direction: column; align-items: center; }
+  .multistore-cards { flex-wrap: wrap; justify-content: center; }
+
+  /* Interior */
+  .interior-images { flex-direction: column; }
+  .interior-img { height: 240px; }
+
+  /* Cost */
+  .cost-inner { overflow-x: auto; }
+  .cost-stamp { font-size: 40px; }
+
+  /* Process */
+  .process-inner { padding: 40px 20px; }
+  .process-grid { flex-direction: column; align-items: center; }
+  .process-arrow { transform: rotate(90deg); }
+  .process-step { width: 100%; max-width: 300px; }
+
+  /* Store */
+  .store-grid { grid-template-columns: 1fr; }
+
+  /* Inquiry form */
+  .inquiry-section { padding: 80px 0 60px; }
+  .inquiry-card > form { padding: 20px; }
+  .form-row { flex-direction: column; gap: 16px; }
+  .form-bottom { flex-direction: column; align-items: stretch; gap: 16px; }
+  .btn-submit { width: 100%; }
+  .inquiry-title { font-size: 36px; }
+
+  /* Footer */
+  .footer-content { flex-direction: column; gap: 16px; }
+  .footer-contact { text-align: left; }
+
+  /* Bottom bar */
+  .bottom-bar-form input,
+  .bottom-bar-form select { display: none; }
+  .bottom-bar-agree { display: none; }
+  .bottom-bar-inner { justify-content: space-between; }
+  .btn-bottom-submit { padding: 8px 16px; }
+}
